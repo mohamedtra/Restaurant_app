@@ -111,7 +111,7 @@ class App extends Component {
     };
 
     addRestaurant = formData => {
-        const url = "/api/restaurants";
+        const url = "http://localhost:8080/api/restaurants";
         fetch(url, {
             method: "POST",
             body: formData

@@ -2,10 +2,8 @@ FROM node:alpine
 
 WORKDIR /app
 
-COPY ./package*.json/app/
+COPY . .
 
 RUN npm install
-
-COPY ..
 
 CMD ["npm", "serverCrudWithMongo.js"]
