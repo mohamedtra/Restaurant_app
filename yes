@@ -1,0 +1,27 @@
+version: '3'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+  web:
+    container_name: myWebApp
+    image: nginx
+    ports:
+      - "9090:80"
+    volumes:
+      - /app/web/www:/var/www/html
+      - /app/web/sites:/etc/nginx/conf.d
+
+  nodejs:
+      container_name: myphpSvc
+      image: php-mysql:fpm
+      volumes:
+        - /app/web/www:/var/www/html
+
+ mongodb:
+   container_name: mydb
+   image: mariadb
+   environment:
+      MYSQL_ROOT_PASSWORD: root
